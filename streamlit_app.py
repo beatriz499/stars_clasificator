@@ -5,6 +5,8 @@ import pandas as pd
 st.title("Clasificador de estrellas")
 st.write('Aplicación de clasificación de estrellas')
 
+st.image("img/fondo-estrellas.jpg", use_container_width=True)
+
 # # Carga el modelo entrenado
 model = joblib.load('stars_model.joblib')
 

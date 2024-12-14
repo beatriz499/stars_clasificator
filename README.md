@@ -5,3 +5,5 @@ Aplicación web hecha en Streamlit que carga un modelo de IA y clasifica estrell
 <img src="img/fondo-estrellas.jpg" width="600">
 
 Aplicación web desplegada:
+
+https://stars-clasificator.streamlit.app/
