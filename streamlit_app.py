@@ -17,7 +17,7 @@ def predict_star_type(data):
 # Streamlit app
 st.title("Star Classifier")
 st.write('Aplicación de clasificación de mascotas')
-st.image("img/shiva.png", use_container_width=True)
+st.image("fondo-estrellas.jpg", use_container_width=True)
 
 # Input features
 st.sidebar.header("Star Features")
