@@ -20,17 +20,16 @@ st.write('Aplicación de clasificación de mascotas')
 st.image("img/fondo-estrellas.jpg", use_container_width=True)
 
 # Input features
-st.sidebar.header("Star Features")
-temperature = st.sidebar.number_input("Temperature (K)", min_value=2000, max_value=40000, value=5778, step=100)
-luminosity = st.sidebar.number_input("Luminosity (L/Lo)", min_value=0.01, max_value=1000000, value=1.0, step=0.1)
-radius = st.sidebar.number_input("Radius (R/Ro)", min_value=0.01, max_value=2000, value=1.0, step=0.1)
-absolute_magnitude = st.sidebar.number_input("Absolute Magnitude (Mv)", min_value=-10.0, max_value=20.0, value=5.0, step=0.1)
+temperature = st.number_input("Temperature (K)", min_value=2000, max_value=40000, value=5778, step=100)
+luminosity = st.number_input("Luminosity (L/Lo)", min_value=0.01, max_value=1000000, value=1.0, step=0.1)
+radius = st.number_input("Radius (R/Ro)", min_value=0.01, max_value=2000, value=1.0, step=0.1)
+absolute_magnitude = st.number_input("Absolute Magnitude (Mv)", min_value=-10.0, max_value=20.0, value=5.0, step=0.1)
 
 star_color_options = ['Blue', 'Blue-White', 'Blue White', 'White', 'White-Yellow', 'Yellowish', 'Yellowish-White', 'Yellow', 'Orange', 'Orange-Red', 'Red']
-star_color = st.sidebar.selectbox("Star Color", star_color_options)
+star_color = st.selectbox("Star Color", star_color_options)
 
 star_category_options = ['Brown Dwarf', 'Red Dwarf', 'White Dwarf', 'Main Sequence', 'Supergiant', 'Hypergiant']
-star_category = st.sidebar.selectbox("Star Category", star_category_options)
+star_category = st.selectbox("Star Category", star_category_options)
 
 # Create a DataFrame from the input features
 input_data = pd.DataFrame({
