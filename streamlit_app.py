@@ -1,38 +1,38 @@
+# prompt: Crea un código para una web con streamlit que permita usar el modelo .joblib anterior y permita al usuario introducir los datos necesarios de una estrella y predecir cual es su clasificación.
+
 import streamlit as st
 import joblib
 import pandas as pd
+import numpy as np
 
-st.title("Clasificador de estrellas")
-st.write('Aplicación de clasificación de estrellas')
-
-st.image("img/fondo-estrellas.jpg", use_container_width=True)
-
-# # Carga el modelo entrenado
+# Load the trained model
 model = joblib.load('stars_model.joblib')
 
-# Input fields for star characteristics
-temperature = st.number_input("Temperature (K)", min_value=0)
+# Title of the app
+st.title("Star Classification")
+
+# Input features
+temp = st.number_input("Temperature (K)", min_value=0)
 luminosity = st.number_input("Luminosity (L/Lo)", min_value=0.0)
 radius = st.number_input("Radius (R/Ro)", min_value=0.0)
-absolute_magnitude = st.number_input("Absolute Magnitude (Mv)", min_value=-10.0, max_value=20.0)
+magnitude = st.number_input("Absolute Magnitude (Mv)", min_value=-10.0, max_value=20.0)
 
 # Create a button to trigger prediction
-if st.button("Classify Star"):
-    # Create a DataFrame from user input
+if st.button("Predict Star Type"):
+    # Create a dataframe for the input features
     input_data = pd.DataFrame({
-        'Temperature (K)': [temperature],
+        'Temperature (K)': [temp],
         'Luminosity (L/Lo)': [luminosity],
         'Radius (R/Ro)': [radius],
-        'Absolute magnitude (Mv)': [absolute_magnitude]
+        'Absolute magnitude (Mv)': [magnitude]
     })
+    
+    # Make prediction using the loaded model
+    prediction = model.predict(input_data)
 
-    # Make prediction
-    prediction = model.predict(input_data)[0]
+    # Map numerical prediction to star spectral class
+    spectral_class_mapping = {0:'M', 1:'A', 2:'B', 3:'F', 4:'O', 5:'K', 6:'G'}
+    predicted_class = spectral_class_mapping.get(prediction[0], "Unknown")
 
     # Display the prediction
-    if prediction == 0:
-        st.write("Predicted Spectral Class: M")
-    elif prediction == 1:
-        st.write("Predicted Spectral Class: A, B, F, O, K, or G")
-    else:
-        st.write("Prediction error")
+    st.write(f"Predicted Spectral Class: {predicted_class}")
