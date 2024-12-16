@@ -17,7 +17,7 @@ def predict_star_type(data):
 # Streamlit app
 st.title("Star Classifier")
 st.write('Aplicación de clasificación de mascotas')
-st.image("img\fondo-estrellas.jpg", use_container_width=True)
+st.image("img/fondo-estrellas.jpg", use_container_width=True)
 
 # Input features
 st.sidebar.header("Star Features")
@@ -69,19 +69,19 @@ if st.button("Predict"):
 
         # Display corresponding image (replace with your actual image paths)
         if spectral_class == 0:
-            st.image("img\m_star_image.jpg", caption="M Star", use_column_width=True) #Replace m_star_image.jpg
+            st.image("img/m_star_image.jpg", caption="M Star", use_column_width=True) #Replace m_star_image.jpg
         elif spectral_class == 1:
-            st.image("img\a_star_image.jpg", caption="A Star", use_column_width=True) #Replace a_star_image.jpg
+            st.image("img/a_star_image.jpg", caption="A Star", use_column_width=True) #Replace a_star_image.jpg
         elif spectral_class == 2:
-            st.image("img\b_star_image.jpg", caption="B Star", use_column_width=True) #Replace b_star_image.jpg
+            st.image("img/b_star_image.jpg", caption="B Star", use_column_width=True) #Replace b_star_image.jpg
         elif spectral_class == 3:
-            st.image("img\f_star_image.jpg", caption="F Star", use_column_width=True) #Replace f_star_image.jpg
+            st.image("img/f_star_image.jpg", caption="F Star", use_column_width=True) #Replace f_star_image.jpg
         elif spectral_class == 4:
-            st.image("img\o_star_image.jpg", caption="O Star", use_column_width=True) #Replace o_star_image.jpg
+            st.image("img/o_star_image.jpg", caption="O Star", use_column_width=True) #Replace o_star_image.jpg
         elif spectral_class == 5:
-            st.image("img\k_star_image.jpg", caption="K Star", use_column_width=True) #Replace k_star_image.jpg
+            st.image("img/k_star_image.jpg", caption="K Star", use_column_width=True) #Replace k_star_image.jpg
         elif spectral_class == 6:
-            st.image("img\g_star_image.jpg", caption="G Star", use_column_width=True) #Replace g_star_image.jpg
+            st.image("img/g_star_image.jpg", caption="G Star", use_column_width=True) #Replace g_star_image.jpg
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
