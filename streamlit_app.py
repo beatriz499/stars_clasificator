@@ -3,7 +3,7 @@ import numpy as np
 from joblib import load
 
 # Cargar el modelo
-model_path = 'stars_model.joblib'  # Asegúrate de que el archivo esté en la misma ruta o especifica la correcta
+model_path = 'stars_model.joblib'
 model = load(model_path)
 
 # Configurar la página de Streamlit
